@@ -7,7 +7,7 @@ import { layoutConfig } from "@/layout/layout-config"
 
 const LayoutHeader = ({ action }: { action?: ReactNode }) => {
     return (
-        <Box width='100%' sx={(theme) => ({ backgroundColor: theme.palette.background.paper, borderBottom: 1, borderColor: theme.palette.divider, height: layoutConfig.headerHeight, padding: layoutConfig.paddings })} className="flex items-center w-full">
+        <Box width='100%' sx={(theme) => ({ zIndex: 1, backgroundColor: theme.palette.background.paper, borderBottom: 1, borderColor: theme.palette.divider, height: layoutConfig.headerHeight, padding: layoutConfig.paddings })} className="flex items-center w-full">
             <AppLogo />
             {action}
         </Box>
