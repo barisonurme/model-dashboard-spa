@@ -21,7 +21,6 @@ const ProjectWrapper = () => {
     const { projectId } = useParams<{ projectId: string }>()
 
     const { data: projectDetails, isLoading, isError, refetch } = useGetProjectDetails(projectId!)
-    console.log('projectDetails  XX:', projectDetails);
 
     if (isLoading) {
         return (
@@ -42,8 +41,8 @@ const ProjectWrapper = () => {
     return (
         <Box className='flex flex-col w-full h-full'>
             <PageHeader
-                title="Project Details"
-                description="This is a project description"
+                title={projectDetails?.project_name}
+                description={projectDetails?.objectives}
                 goBackLink="/projects"
                 tabSection={
                     <LinkedTabs grey tabs={projectTabs} initialTab={projectTabs[0].link} />
