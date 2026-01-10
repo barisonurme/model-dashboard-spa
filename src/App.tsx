@@ -5,9 +5,9 @@ import { ThemeProvider } from "@/layout/theme"
 
 // ----------------------------------------------------------------------
 
-function App() {
+const queryClient = new QueryClient()
 
-  const queryClient = new QueryClient()
+function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
