@@ -9,7 +9,6 @@ import { Box } from "@mui/material";
 import { Outlet, useParams } from "react-router"
 
 
-//Uncaught ReferenceError: Cannot access 'routerConfig' before initialization 
 const projectTabs = [
     { label: "Data Table", link: "table" },
     { label: "Recent Operations", link: "operations" },

@@ -14,7 +14,7 @@ import { ImagedBackground } from "@/layout/imaged-background";
 const ProjectsList = () => {
 
     const { data: projectListResponse, isLoading, isError, refetch } = useGetProjectList();
-    const [selectedProject, setSelectedProject] = useState<string>(projectListResponse && projectListResponse[0]?.project_id ? projectListResponse[0].project_id : "");
+    const [selectedProject, setSelectedProject] = useState<string>('');
 
     const navigate = useNavigate();
 
