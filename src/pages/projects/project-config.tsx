@@ -4,7 +4,7 @@ import ProjectsList from "./projects-list";
 import ProjectTabTable from "./tabs/project-tab-table";
 import ProjectTabOperations from "./tabs/project-tab-operations";
 import ProjectTabGovernance from "./tabs/project-tab-governance";
-import ProjectTabLineage from "./tabs/project-tab-operations";
+import ProjectTabLineage from "./tabs/project-tab-lineage";
 
 // ----------------------------------------------------------------------
 

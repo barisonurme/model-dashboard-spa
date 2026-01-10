@@ -1,7 +1,7 @@
-const ProjectTabLineage = () => {
+const ProjectTabOperations = () => {
     return (
-        <div>ProjectTabLineage</div>
+        <div>ProjectTabOperations</div>
     )
 }
 
-export default ProjectTabLineage
+export default ProjectTabOperations
