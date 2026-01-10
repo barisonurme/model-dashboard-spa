@@ -1,7 +1,4 @@
-import type { ProjectTable } from "./types";
-
-
-
+import type { MockData } from "./types";
 
 export const projectsMockData = [
     {
@@ -121,15 +118,6 @@ export const projectsMockData = [
         "updated_at": "2025-04-15T14:00:00Z"
     }
 ];
-
-
-interface MockData {
-    project_tables: Record<string, ProjectTable[]>;
-
-    // Other fields you might have
-    // recent_operations?: Operation[];
-    [key: string]: unknown; // only if you really want dynamic additional fields
-}
 
 export const mockData: MockData = {
     "project_tables": {
