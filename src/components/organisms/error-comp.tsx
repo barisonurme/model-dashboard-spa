@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils/cn";
 import { ErrorOutline } from "@mui/icons-material";
 import { Button } from "@mui/material";
 
+// ----------------------------------------------------------------------
 
 const ErrorComp = ({ errorMessage, fullScreen, onRefetch, isRefetchLoading }: { errorMessage?: string, fullScreen?: boolean, onRefetch?: () => void, isRefetchLoading?: boolean }) => {
     return (

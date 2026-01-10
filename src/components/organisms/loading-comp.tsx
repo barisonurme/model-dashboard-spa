@@ -2,6 +2,7 @@ import { ImagedBackground } from "@/layout/imaged-background"
 import { cn } from "@/lib/utils/cn"
 import { CircularProgress } from "@mui/material";
 
+// ----------------------------------------------------------------------
 
 const LoadingComp = ({ loadingText, fullScreen }: { loadingText?: string, fullScreen?: boolean }) => {
     return (

@@ -6,6 +6,8 @@ import ProjectTabOperations from "./tabs/project-tab-operations";
 import ProjectTabGovernance from "./tabs/project-tab-governance";
 import ProjectTabLineage from "./tabs/project-tab-operations";
 
+// ----------------------------------------------------------------------
+
 export const projectConfig: RouteObject[] = [
     {
         path: "projects",

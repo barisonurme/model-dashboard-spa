@@ -9,6 +9,7 @@ import ErrorComp from "@/components/organisms/error-comp";
 import { Button, Card, CardContent, CardHeader } from "@mui/material";
 import { ImagedBackground } from "@/layout/imaged-background";
 
+// ----------------------------------------------------------------------
 
 const ProjectsList = () => {
 

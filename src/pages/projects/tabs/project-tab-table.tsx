@@ -24,6 +24,8 @@ import { grey } from '@mui/material/colors';
 import { checkPointsConsts, roleColors } from '@/lib/constants/constants';
 import type { ProjectTableVersion } from '@/mock/types';
 
+// ----------------------------------------------------------------------
+
 const ProjectTabTable = () => {
     const { projectId } = useParams<{ projectId: string }>();
     const [expandedTable, setExpandedTable] = useState<string | null>(null);
@@ -71,11 +73,23 @@ const ProjectTabTable = () => {
                 </TableHead>
 
                 <TableBody>
-                    {/* MAIN ROW */}
+                    {/* 
+                    *
+                    *
+                    * MAIN ROW
+                    * 
+                    * 
+                    *  */}
                     {rows?.map((row) =>
                         <Fragment key={row.id}>
 
-                            {/* ACTUAL ROW */}
+                            {/* 
+                            *
+                            *
+                            * ACTUAL ROW
+                            * 
+                            * 
+                            *  */}
                             <TableRow>
                                 <TableCell>
                                     <IconButton size="small" onClick={() => setExpandedTable(prev => prev === row.id ? null : row.id)}>
@@ -91,7 +105,13 @@ const ProjectTabTable = () => {
                                 <TableCell>{<Chip icon={<Icon className='scale-50'>{checkPointsConsts[row.versions[row.versions.length - 1].checkpoint_type as keyof typeof checkPointsConsts].icon}</Icon>} label={checkPointsConsts[row.versions[row.versions.length - 1].checkpoint_type as keyof typeof checkPointsConsts].label} />}</TableCell>
                             </TableRow>
 
-                            {/* EXPANDED ROW */}
+                            {/* 
+                            *
+                            *
+                            * EXPANDED ROW
+                            * 
+                            * 
+                            *  */}
                             <TableRow>
                                 <TableCell colSpan={8} sx={{ py: 0, backgroundColor: grey[100], borderLeft: 4, borderColor: 'divider' }}>
                                     <Collapse in={expandedTable === row.id} timeout="auto" unmountOnExit>

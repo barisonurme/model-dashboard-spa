@@ -1,5 +1,7 @@
 import { Box, type BoxProps, type CSSObject } from "@mui/material";
 
+// ----------------------------------------------------------------------
+
 export const ImagedBackground = ({ children, bgProps, ...props }: { bgProps?: BoxProps, children?: React.ReactNode } & BoxProps) => {
     return <Box className="relative flex w-full h-full justify-center items-center" {...props}>
         <Box sx={{ '&::before': backgroundStyles() }} {...bgProps} />

@@ -2,6 +2,8 @@ import { alpha, Tab, Tabs, useTheme } from '@mui/material';
 import { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 
+// ----------------------------------------------------------------------
+
 type Props = {
     grey?: boolean;
     tabs: { label: string; link: string }[];
