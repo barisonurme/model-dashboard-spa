@@ -15,3 +15,16 @@ export const useGetProjectTableDetails = (projectId: string) => {
     return useQuery({ queryKey: queryKeys.projectTableDetails(projectId), queryFn: () => MockService.getProjectTableDetails(projectId) });
 }
 
+export const useGetProjectRecentOperations = (projectId: string) => {
+    return useQuery({ queryKey: queryKeys.projectRecentOperations(projectId), queryFn: () => MockService.getProjectRecentOperations(projectId) });
+}
+
+export const useGetProjectGovernance = (projectId: string) => {
+    return useQuery({ queryKey: queryKeys.projectGovernance(projectId), queryFn: () => MockService.getProjectGovernance(projectId) });
+}
+
+export const useGetProjectTableLineage = (projectId: string) => {
+    return useQuery({ queryKey: queryKeys.projectGovernance(projectId), queryFn: () => MockService.getProjectTableLineage(projectId) });
+}
+
+
