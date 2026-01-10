@@ -1,0 +1,61 @@
+import ErrorComp from "@/components/organisms/error-comp";
+import LinkedTabs from "@/components/organisms/linked-tabs"
+import LoadingComp from "@/components/organisms/loading-comp";
+import PageHeader from "@/components/organisms/page-header"
+import { ImagedBackground } from "@/layout/imaged-background";
+import { layoutConfig } from "@/layout/layout-config"
+import { useGetProjectDetails } from "@/service/use-queries";
+import { Box } from "@mui/material";
+import { Outlet, useParams } from "react-router"
+
+
+//Uncaught ReferenceError: Cannot access 'routerConfig' before initialization 
+const projectTabs = [
+    { label: "Data Table", link: "table" },
+    { label: "Recent Operations", link: "operations" },
+    { label: "Governance Status", link: "governance" },
+    { label: "Data Lineage", link: "lineage" },
+]
+
+const ProjectWrapper = () => {
+    const { projectId } = useParams<{ projectId: string }>()
+
+    const { data: projectDetails, isLoading, isError, refetch } = useGetProjectDetails(projectId!)
+    console.log('projectDetails  XX:', projectDetails);
+
+    if (isLoading) {
+        return (
+            <ImagedBackground className="flex w-full h-full justify-center items-center">
+                <LoadingComp loadingText="Loading project details" />
+            </ImagedBackground>
+        )
+    }
+
+    if (isError) {
+        return (
+            <ImagedBackground className="flex w-full h-full justify-center items-center">
+                <ErrorComp errorMessage="Error occurred while loading project details" onRefetch={refetch} />
+            </ImagedBackground>
+        )
+    }
+
+    return (
+        <Box className='flex flex-col w-full h-full'>
+            <PageHeader
+                title="Project Details"
+                description="This is a project description"
+                goBackLink="/projects"
+                tabSection={
+                    <LinkedTabs grey tabs={projectTabs} initialTab={projectTabs[0].link} />
+                }
+            />
+            <Box className="relative flex w-full h-full">
+                <ImagedBackground className="flex w-full " sx={{ padding: layoutConfig.paddings }}>
+                    <Outlet context={{ projectDetails }} />
+                </ImagedBackground>
+            </Box>
+        </Box>
+    )
+}
+
+export default ProjectWrapper

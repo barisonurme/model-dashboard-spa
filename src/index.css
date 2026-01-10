@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+.squircle {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  corner-shape: squircle;
+  background: #8458ff;
+}
