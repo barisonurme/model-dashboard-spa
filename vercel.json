@@ -1,8 +1,13 @@
 {
-  "routes": [
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist",
+  "installCommand": "pnpm install",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/:path((?!assets/).*)",
+      "destination": "/index.html"
     }
   ]
 }
