@@ -43,9 +43,7 @@ const ProjectWrapper = () => {
                 title={projectDetails?.project_name}
                 description={projectDetails?.objectives}
                 goBackLink="/projects"
-                tabSection={
-                    <LinkedTabs grey tabs={projectTabs} initialTab={projectTabs[0].link} />
-                }
+                tabSection={<Box className='flex justify-end'><LinkedTabs grey tabs={projectTabs} initialTab={projectTabs[0].link} /></Box>}
             />
             <Box className="relative flex w-full h-full max-h-[calc(100dvh-310px)] overflow-y-hidden">
                 <ImagedBackground className="flex w-full overflow-y-scroll" sx={{ padding: layoutConfig.paddings }}>
