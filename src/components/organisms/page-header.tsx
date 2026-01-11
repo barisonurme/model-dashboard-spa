@@ -1,17 +1,19 @@
 import { ArrowBackIosNewRounded } from "@mui/icons-material";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Chip, Icon, Typography } from "@mui/material";
 import { useNavigate } from "react-router"
 
 type Props = {
     goBackLink?: string
     title?: string
+    subTitle?: string
+    titleChip?: { label: string, icon?: string };
     description?: string
     actions?: React.ReactNode
     tabSection?: React.ReactNode
 }
 
 const PageHeader = (props: Props) => {
-    const { goBackLink, title, description, actions, tabSection } = props
+    const { goBackLink, title, titleChip, subTitle, description, actions, tabSection } = props
     const navigate = useNavigate()
     return (
         <Box
@@ -20,9 +22,14 @@ const PageHeader = (props: Props) => {
             <Box className="w-full flex items-center gap-1">
                 {goBackLink && <Button className="w-8! h-12! min-w-8! min-h-12! rounded-full!" onClick={() => navigate(goBackLink)} variant="outlined"><ArrowBackIosNewRounded sx={{ color: 'text.primary' }} /></Button>}
                 <Box className="flex justify-between w-full">
-                    <Box display='flex' flexDirection='column' flexGrow={1} >
-                        {title && <Typography color='text.primary' variant="h3">{title}</Typography>}
-                        {description && <Typography variant="subtitle1">{description}</Typography>}
+                    <Box paddingRight={4} className='flex w-full justify-between'>
+                        <Box display='flex' flexDirection='column' flexGrow={1} justifyContent='center'>
+                            {title && <Box className='flex gap-2 items-center'><Typography color='text.primary' variant="h3">{title}</Typography></Box>}
+                            {subTitle && <Typography variant="subtitle1">{subTitle}</Typography>}
+                            {description && <Typography variant="subtitle2" fontStyle='italic' sx={{ opacity: 0.5 }}>{description}</Typography>}
+                        </Box>
+
+                        {titleChip?.label && <Chip sx={{ color: 'primary.contrastText', paddingX: 2, "& .MuiIcon-root": { color: 'primary.contrastText' } }} variant="outlined" label={titleChip.label} icon={titleChip.icon ? <Icon>{titleChip.icon}</Icon> : undefined} />}
                     </Box>
                     {actions && <div>{actions}</div>}
                 </Box>

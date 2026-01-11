@@ -4,6 +4,7 @@ import LoadingComp from "@/components/organisms/loading-comp";
 import PageHeader from "@/components/organisms/page-header"
 import { ImagedBackground } from "@/layout/imaged-background";
 import { layoutConfig } from "@/layout/layout-config"
+import { statusConst } from "@/lib/constants/constants";
 import { useGetProjectDetails } from "@/service/use-queries";
 import { Box } from "@mui/material";
 import { Outlet, useParams } from "react-router"
@@ -40,8 +41,10 @@ const ProjectWrapper = () => {
     return (
         <Box className='flex flex-col w-full h-full'>
             <PageHeader
-                title={projectDetails?.project_name}
-                description={projectDetails?.objectives}
+                title={`${projectDetails?.project_name} | ${projectDetails?.project_type}`}
+                titleChip={{ label: statusConst[projectDetails?.status as keyof typeof statusConst].label ?? "", icon: statusConst[projectDetails?.status as keyof typeof statusConst].icon }}
+                subTitle={`${projectDetails?.owner.name} | ${projectDetails?.owner.title}`}
+                description={projectDetails?.governance_manager?.name ? `${projectDetails?.governance_manager?.name} ${projectDetails?.governance_manager?.title}` : ""}
                 goBackLink="/projects"
                 tabSection={<Box className='flex justify-end'><LinkedTabs grey tabs={projectTabs} initialTab={projectTabs[0].link} /></Box>}
             />

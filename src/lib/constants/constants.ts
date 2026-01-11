@@ -13,3 +13,11 @@ export const checkPointsConsts = {
     'development_gate': { label: 'Development Gate', icon: 'code_outlined' },
     'validation_gate': { label: 'Validation Gate', icon: 'published_with_changes_outlined' },
 }
+
+export const statusConst = {
+    'Active': { label: 'Active', icon: 'model_training_outlined' },
+    'Review': { label: 'Review', icon: 'hourglass_empty_outlined' },
+    'Approved': { label: 'Approved', icon: 'check_outlined' },
+    'Draft': { label: 'Draft', icon: 'draw_outlined' },
+    'Locked': { label: 'Locked', icon: 'lock_outlined' }
+}
