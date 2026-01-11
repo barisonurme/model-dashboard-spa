@@ -29,7 +29,7 @@ import type { ProjectTableVersion } from '@/mock/types';
 const ProjectTabTable = () => {
     const { projectId } = useParams<{ projectId: string }>();
     const [expandedTable, setExpandedTable] = useState<string | null>(null);
-    const { data, isLoading, isError, refetch } = useGetProjectTableDetails(projectId!);
+    const { data, isLoading, isError, refetch } = useGetProjectTableDetails(projectId ?? "");
 
 
     if (isLoading) return <LoadingComp loadingText="Loading project details" />

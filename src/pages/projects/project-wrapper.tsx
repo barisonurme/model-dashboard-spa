@@ -19,7 +19,7 @@ const projectTabs = [
 const ProjectWrapper = () => {
     const { projectId } = useParams<{ projectId: string }>()
 
-    const { data: projectDetails, isLoading, isError, refetch } = useGetProjectDetails(projectId!)
+    const { data: projectDetails, isLoading, isError, refetch } = useGetProjectDetails(projectId ?? "")
 
     if (isLoading) {
         return (
@@ -47,8 +47,8 @@ const ProjectWrapper = () => {
                     <LinkedTabs grey tabs={projectTabs} initialTab={projectTabs[0].link} />
                 }
             />
-            <Box className="relative flex w-full h-full">
-                <ImagedBackground className="flex w-full " sx={{ padding: layoutConfig.paddings }}>
+            <Box className="relative flex w-full h-full max-h-[calc(100dvh-310px)] overflow-y-hidden">
+                <ImagedBackground className="flex w-full overflow-y-scroll" sx={{ padding: layoutConfig.paddings }}>
                     <Outlet context={{ projectDetails }} />
                 </ImagedBackground>
             </Box>
