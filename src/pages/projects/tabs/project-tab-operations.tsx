@@ -29,11 +29,11 @@ const ProjectTabOperations = () => {
                 {data?.map((datum, index) => {
                     const isLastIndex = data.length - 1 === index
                     return <TimelineItem className="flex w-full" key={datum.operation_log_id}>
+                        <TimelineOppositeContent className="w-12 max-w-12">{datum.execution_timestamp ? new Date(datum.execution_timestamp).toLocaleDateString() : "--"}</TimelineOppositeContent>
                         <TimelineSeparator>
                             <TimelineDot sx={{ backgroundColor: 'primary.main' }} />
                             {!isLastIndex && <TimelineConnector />}
                         </TimelineSeparator>
-                        <TimelineOppositeContent className="w-12 max-w-24 mt-2!">{datum.execution_timestamp ? new Date(datum.execution_timestamp).toLocaleDateString() : "--"}</TimelineOppositeContent>
                         <TimelineContent className="flex w-full">
                             <Card className="flex flex-col w-full">
                                 <CardHeader title={datum.affected_table} subheader={datum.output_table_version} />
